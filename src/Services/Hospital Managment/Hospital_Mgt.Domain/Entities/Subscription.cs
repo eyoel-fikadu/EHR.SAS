@@ -1,13 +1,10 @@
-﻿using HospitalMgt.Domain.Seed;
+﻿using EHR.SAS.Common.Domain;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace HospitalMgt.Domain.Entities
 {
-    public class Subscription : EntityBase
+    public class Subscription : AuditableEntity
     {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

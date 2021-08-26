@@ -1,9 +1,6 @@
-﻿using HospitalMgt.Domain.Seed;
-using System;
+﻿using EHR.SAS.Common.Domain;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace HospitalMgt.Domain.ValueObjects
 {
@@ -20,7 +17,14 @@ namespace HospitalMgt.Domain.ValueObjects
 
         protected override IEnumerable<object> GetEqualityComponents()
         {
-            throw new NotImplementedException();
+            yield return Country;
+            yield return State;
+            yield return City;
+            yield return SubCity;
+            yield return HouseNumber;
+            yield return LocationDescription;
+            yield return Longtiued;
+            yield return Latitude;
         }
     }
 }

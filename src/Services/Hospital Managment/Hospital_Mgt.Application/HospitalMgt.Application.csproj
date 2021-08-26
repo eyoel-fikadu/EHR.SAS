@@ -4,4 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\EHR.SAS.Common\EHR.SAS.Common.csproj" />
+    <ProjectReference Include="..\Hospital_Mgt.Domain\HospitalMgt.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Hospitals\Command\" />
+    <Folder Include="Features\Hospitals\Query\" />
+  </ItemGroup>
+
 </Project>

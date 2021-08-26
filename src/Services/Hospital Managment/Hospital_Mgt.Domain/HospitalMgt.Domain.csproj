@@ -4,4 +4,12 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\EHR.SAS.Common\EHR.SAS.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Seed\" />
+  </ItemGroup>
+
 </Project>

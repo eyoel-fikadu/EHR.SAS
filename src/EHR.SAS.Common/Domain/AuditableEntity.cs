@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace HospitalMgt.Domain.Seed
+namespace EHR.SAS.Common.Domain
 {
-    public abstract class EntityBase
+    public abstract class AuditableEntity
     {
         public Guid Id { get; protected set; }
         public bool IsActive { get; protected set; }
