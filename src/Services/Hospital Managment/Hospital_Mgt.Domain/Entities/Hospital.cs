@@ -9,7 +9,10 @@ namespace HospitalMgt.Domain.Entities
 {
     public class Hospital : EntityBase
     {
-        public string  name { get; set; }
-        public string description { get; set; }
+        public string  Name { get; set; }
+        public string Description { get; set; }
+        public string Website { get; set; }
+        public List<string> PhoneNumber { get; set; }
+        public List<string> Email { get; set; }
     }
 }

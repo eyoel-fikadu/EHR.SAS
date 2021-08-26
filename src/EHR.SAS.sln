@@ -11,13 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Kernel", "Shared Ker
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hospital Managment", "Hospital Managment", "{154FFFEC-2BD2-43E3-9C12-B91D92E099AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalMgt.Domain", "Services\Hospital Managment\Hospital_Mgt.Domain\HospitalMgt.Domain.csproj", "{CB4447AA-DFE1-424B-8927-890065A3FC68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalMgt.Domain", "Services\Hospital Managment\Hospital_Mgt.Domain\HospitalMgt.Domain.csproj", "{CB4447AA-DFE1-424B-8927-890065A3FC68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalMgt.Application", "Services\Hospital Managment\Hospital_Mgt.Application\HospitalMgt.Application.csproj", "{2B19D0B1-403A-45A5-B969-8AAF67A4E5E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalMgt.Application", "Services\Hospital Managment\Hospital_Mgt.Application\HospitalMgt.Application.csproj", "{2B19D0B1-403A-45A5-B969-8AAF67A4E5E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalMgt.Infrastructure", "Services\Hospital Managment\HospitalMgt.Infrastructure\HospitalMgt.Infrastructure.csproj", "{70CC931D-7BAE-46B3-86E4-9DE6C8D81911}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalMgt.Infrastructure", "Services\Hospital Managment\HospitalMgt.Infrastructure\HospitalMgt.Infrastructure.csproj", "{70CC931D-7BAE-46B3-86E4-9DE6C8D81911}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HospitalMgt.API", "Services\Hospital Managment\HospitalMgt.API\HospitalMgt.API.csproj", "{F44014A0-8C7C-411C-B063-F4A53AA864B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalMgt.API", "Services\Hospital Managment\HospitalMgt.API\HospitalMgt.API.csproj", "{F44014A0-8C7C-411C-B063-F4A53AA864B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity Server", "Identity Server", "{33707B03-424D-4BA6-B03B-D2F629ADF442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,7 @@ Global
 		{2B19D0B1-403A-45A5-B969-8AAF67A4E5E0} = {154FFFEC-2BD2-43E3-9C12-B91D92E099AF}
 		{70CC931D-7BAE-46B3-86E4-9DE6C8D81911} = {154FFFEC-2BD2-43E3-9C12-B91D92E099AF}
 		{F44014A0-8C7C-411C-B063-F4A53AA864B0} = {154FFFEC-2BD2-43E3-9C12-B91D92E099AF}
+		{33707B03-424D-4BA6-B03B-D2F629ADF442} = {44F41587-5D45-4948-B97B-D8C34A834E32}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {071A311B-4C0B-4B72-9376-7730AFB85CAD}
