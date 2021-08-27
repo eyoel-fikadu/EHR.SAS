@@ -1,4 +1,8 @@
 using HospitalMgt.API.Middleware;
+using HospitalMgt.API.Services;
+using HospitalMgt.Application;
+using HospitalMgt.Application.Common.Abstraction;
+using HospitalMgt.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,11 +30,27 @@ namespace HospitalMgt.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplication();
+            services.AddInfrastructure(Configuration);
+
+            services.AddHttpContextAccessor();
+
+            services.AddSingleton<ICurrentUserService, CurrentUserService>();
+
+            services.AddMvc(options =>
+            options.Filters.Add<ApiExceptionMiddleware>());
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "HospitalMgt.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "HospitalMgt", Version = "v1" });
+                c.AddSecurityDefinition("JWT", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.ApiKey,
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Description = "Type into the textbox: Bearer {your JWT token}."
+                });
             });
         }
 
@@ -44,11 +64,14 @@ namespace HospitalMgt.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HospitalMgt.API v1"));
             }
 
+            app.UseHttpsRedirection();
+
+
             app.UseRouting();
 
             app.UseAuthorization();
 
-            app.UseMiddleware<ResponseAndExceptionMiddleware>();
+            app.UseMiddleware<ApiExceptionMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

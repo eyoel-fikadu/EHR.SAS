@@ -14,7 +14,9 @@ namespace HospitalMgt.Infrastructure.Persistance
         private readonly ICurrentUserService _currentUserService;
         private readonly IDateTime _dateTime;
 
-        public ApplicationDbContext(ICurrentUserService currentUserService, IDateTime dateTime)
+        public ApplicationDbContext(ICurrentUserService currentUserService, 
+            IDateTime dateTime,
+            DbContextOptions options) : base(options)
         {
             this._currentUserService = currentUserService;
             this._dateTime = dateTime;

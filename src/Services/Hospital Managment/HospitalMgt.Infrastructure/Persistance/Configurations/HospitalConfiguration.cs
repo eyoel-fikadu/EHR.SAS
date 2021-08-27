@@ -16,10 +16,10 @@ namespace HospitalMgt.Infrastructure.Persistance.Configurations
                 .IsRequired();
 
             builder
-                .OwnsMany(b => b.Subscriptions);
+                .HasMany(b => b.Subscriptions);
 
             builder
-                .OwnsMany(b => b.HospitalBranches);
+                .HasMany(b => b.HospitalBranches);
 
             builder
                 .OwnsMany(b => b.HospitalContactInformation);

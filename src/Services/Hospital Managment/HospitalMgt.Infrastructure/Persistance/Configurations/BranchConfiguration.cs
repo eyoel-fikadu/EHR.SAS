@@ -15,7 +15,8 @@ namespace HospitalMgt.Infrastructure.Persistance.Configurations
                 .IsRequired();
 
             builder
-                .OwnsOne(b => b.Address);
+                .OwnsOne(b => b.Address)
+                .ToTable("HospitalBranchAddress");
         }
     }
 }
