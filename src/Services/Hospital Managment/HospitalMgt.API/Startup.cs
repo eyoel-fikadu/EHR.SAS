@@ -5,16 +5,11 @@ using HospitalMgt.Application.Common.Abstraction;
 using HospitalMgt.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace HospitalMgt.API
 {
@@ -38,7 +33,7 @@ namespace HospitalMgt.API
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
             services.AddMvc(options =>
-            options.Filters.Add<ApiExceptionMiddleware>());
+                options.Filters.Add<ApiExceptionMiddleware>());
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -71,7 +66,7 @@ namespace HospitalMgt.API
 
             app.UseAuthorization();
 
-            app.UseMiddleware<ApiExceptionMiddleware>();
+            //app.UseMiddleware<ApiExceptionMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

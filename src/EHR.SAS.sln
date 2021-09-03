@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalMgt.API", "Services
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity Server", "Identity Server", "{33707B03-424D-4BA6-B03B-D2F629ADF442}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHR.SAS.Common", "EHR.SAS.Common\EHR.SAS.Common.csproj", "{35338CB7-2D8E-4C1C-B8F4-659101B41ADC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EHR.SAS.Common", "EHR.SAS.Common\EHR.SAS.Common.csproj", "{35338CB7-2D8E-4C1C-B8F4-659101B41ADC}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4DAA1EB2-BB8E-42CB-A965-DEC95DEF3691}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{35338CB7-2D8E-4C1C-B8F4-659101B41ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35338CB7-2D8E-4C1C-B8F4-659101B41ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35338CB7-2D8E-4C1C-B8F4-659101B41ADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DAA1EB2-BB8E-42CB-A965-DEC95DEF3691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DAA1EB2-BB8E-42CB-A965-DEC95DEF3691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DAA1EB2-BB8E-42CB-A965-DEC95DEF3691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DAA1EB2-BB8E-42CB-A965-DEC95DEF3691}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

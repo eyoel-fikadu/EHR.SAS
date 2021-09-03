@@ -15,8 +15,10 @@ namespace HospitalMgt.Infrastructure
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                      options.UseNpgsql(
-                         configuration.GetConnectionString("DefaultConnection"),
+                         configuration.GetConnectionString("PostgresConnection"),
                          b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
 
             //services

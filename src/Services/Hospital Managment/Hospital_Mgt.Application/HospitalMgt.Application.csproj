@@ -10,8 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Hospitals\Command\" />
-    <Folder Include="Features\Hospitals\Query\" />
+    <Folder Include="Common\Mapper\" />
   </ItemGroup>
 
 </Project>
