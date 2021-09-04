@@ -26,7 +26,7 @@ namespace HospitalMgt.Application.Features.Hospitals.Query
         }
         public async Task<BranchViewModel> Handle(GetHospitalBranchByBranchIdCommand request, CancellationToken cancellationToken)
         {
-            var branch = await dbContext.HospitalBranches.AsNoTracking().FirstOrDefaultAsync(x => x.Id == request.guid);
+            var branch = await dbContext.HospitalBranches.AsNoTrackingWithIdentityResolution().FirstOrDefaultAsync(x => x.Id == request.guid);
             if (branch == null) throw new NotFoundException(nameof(Branches), request.guid);
             return new BranchViewModel(branch);
         }

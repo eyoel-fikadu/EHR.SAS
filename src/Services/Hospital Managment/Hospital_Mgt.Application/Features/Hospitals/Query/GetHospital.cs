@@ -28,7 +28,7 @@ namespace HospitalMgt.Application.Features.Hospitals.Query
         }
         public async Task<HospitalViewModel> Handle(GetHospitalCommand request, CancellationToken cancellationToken)
         {
-            var hospital = await dbContext.Hospitals.Include(x => x.HospitalBranches).FirstOrDefaultAsync(x => x.Id == request.guid);
+            var hospital = await dbContext.Hospitals.Include(x => x.HospitalBranches).AsNoTrackingWithIdentityResolution().FirstOrDefaultAsync(x => x.Id == request.guid);
             if (hospital == null) throw new NotFoundException(nameof(Hospital), request.guid);
             return new HospitalViewModel(hospital);
         }

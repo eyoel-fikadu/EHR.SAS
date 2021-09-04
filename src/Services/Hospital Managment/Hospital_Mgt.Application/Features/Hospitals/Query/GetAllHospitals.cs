@@ -25,7 +25,7 @@ namespace HospitalMgt.Application.Features.Hospitals.Query
         }
         public async Task<PaginatedList<HospitalViewModel>> Handle(GetAllHospitalsCommand request, CancellationToken cancellationToken)
         {
-            var hospitals = await dbContext.Hospitals.Include(x => x.HospitalBranches).PaginatedListAsync(request);
+            var hospitals = await dbContext.Hospitals.Include(x => x.HospitalBranches).AsNoTrackingWithIdentityResolution().PaginatedListAsync(request);
             var list = hospitals?.Items?.Select(c => new HospitalViewModel(c)).ToList();
             return new PaginatedList<HospitalViewModel>(list, hospitals.TotalCount, hospitals.PageIndex, request.PageSize);
         }
