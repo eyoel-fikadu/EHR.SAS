@@ -19,20 +19,21 @@ namespace HospitalMgt.Application.Features.Hospitals.ViewModel
         public List<BranchViewModel> Branches  { get; set; }
         public HospitalViewModel(Hospital hospital)
         {
-            if (hospital == null) throw new NotFoundException(nameof(Hospital));
-            guid = hospital.Id;
-            Name = hospital.Name;
-            Description = hospital.Description;
-            Website = hospital.Website;
-            Type = hospital.Type;
-            TypeOfCare = hospital.TypeOfCare;
-            contactInformation = hospital.HospitalContactInformation?.ToList();
-            Branches = new List<BranchViewModel>();
-            hospital.HospitalBranches?.ToList().ForEach(x =>
+            if (hospital != null)
             {
-                Branches.Add(new BranchViewModel(x));
-            });
+                guid = hospital.Id;
+                Name = hospital.Name;
+                Description = hospital.Description;
+                Website = hospital.Website;
+                Type = hospital.Type;
+                TypeOfCare = hospital.TypeOfCare;
+                contactInformation = hospital.HospitalContactInformation?.ToList();
+                Branches = new List<BranchViewModel>();
+                hospital.HospitalBranches?.ToList().ForEach(x =>
+                {
+                    Branches.Add(new BranchViewModel(x));
+                });
+            }
         }
-
     }
 }

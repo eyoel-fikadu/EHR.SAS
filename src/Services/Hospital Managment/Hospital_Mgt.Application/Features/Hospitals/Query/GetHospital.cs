@@ -4,6 +4,7 @@ using HospitalMgt.Application.Features.Hospitals.ViewModel;
 using HospitalMgt.Domain.Entities;
 using MapsterMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace HospitalMgt.Application.Features.Hospitals.Query
         }
         public async Task<HospitalViewModel> Handle(GetHospitalCommand request, CancellationToken cancellationToken)
         {
-            var hospital = await dbContext.Hospitals.FindAsync(request.guid);
+            var hospital = await dbContext.Hospitals.Include(x => x.HospitalBranches).FirstOrDefaultAsync(x => x.Id == request.guid);
             if (hospital == null) throw new NotFoundException(nameof(Hospital), request.guid);
             return new HospitalViewModel(hospital);
         }

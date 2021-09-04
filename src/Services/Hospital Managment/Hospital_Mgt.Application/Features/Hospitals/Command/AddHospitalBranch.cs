@@ -5,6 +5,7 @@ using HospitalMgt.Domain.ValueObjects;
 using Mapster;
 using MapsterMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -39,7 +40,7 @@ namespace HospitalMgt.Application.Features.Hospitals.Command
         public async Task<Guid> Handle(AddHospitalBranchCommand request, CancellationToken cancellationToken)
         {
             var branch = mapper.Map<Branches>(request);
-            var hospital = await dbContext.Hospitals.FindAsync(request.hospitalGuid);
+            var hospital = await dbContext.Hospitals.Include(x => x.HospitalBranches).FirstOrDefaultAsync(x => x.Id == request.hospitalGuid);
             if (hospital == null) throw new NotFoundException(nameof(Hospital), request.hospitalGuid);
             hospital.HospitalBranches.Add(branch);
 

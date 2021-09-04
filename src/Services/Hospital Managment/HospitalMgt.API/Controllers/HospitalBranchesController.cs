@@ -10,6 +10,12 @@ namespace HospitalMgt.API.Controllers
 {
     public class HospitalBranchesController : ApiControllerBase
     {
+        [HttpPost]
+        public async Task<ActionResult<Guid>> Create(AddHospitalBranchCommand command)
+        {
+            return await Mediator.Send(command);
+        }
+
         [HttpGet("getByHospital/{id}")]
         public async Task<ActionResult<List<BranchViewModel>>> GetBranchesByHospitalId(Guid id)
         {
@@ -19,13 +25,18 @@ namespace HospitalMgt.API.Controllers
         [HttpGet("{guid}")]
         public async Task<ActionResult<BranchViewModel>> GetClientById(Guid guid)
         {
-            return await Mediator.Send(new GetHospitalBranchByBranchCommand() { guid = guid });
+            return await Mediator.Send(new GetHospitalBranchByBranchIdCommand() { guid = guid });
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Guid>> Create(AddHospitalBranchCommand command)
+        [HttpPut("{guid}")]
+        public async Task<ActionResult<bool>> Update(Guid guid, UpdateBranchCommand request)
         {
-            return await Mediator.Send(command);
+            if(guid != request.id)
+            {
+               return BadRequest();
+            }
+            return await Mediator.Send(request);
         }
+       
     }
 }

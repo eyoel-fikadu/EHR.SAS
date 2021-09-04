@@ -1,6 +1,9 @@
-﻿using HospitalMgt.Application.Common.Abstraction;
+﻿using EHR.SAS.Common.Application.Exceptions;
+using HospitalMgt.Application.Common.Abstraction;
 using HospitalMgt.Application.Features.Hospitals.ViewModel;
+using HospitalMgt.Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,28 +27,9 @@ namespace HospitalMgt.Application.Features.Hospitals.Query
         }
         public async Task<List<BranchViewModel>> Handle(GetHospitalBranchCommand request, CancellationToken cancellationToken)
         {
-            var hospital = await dbContext.Hospitals.FindAsync(request.guid);
+            var hospital = await dbContext.Hospitals.Include(x => x.HospitalBranches).AsNoTracking().FirstOrDefaultAsync(x => x.Id == request.guid);
+            if (hospital == null) throw new NotFoundException(nameof(Hospital),request.guid);
             return hospital.HospitalBranches?.Select(x => new BranchViewModel(x)).ToList();
-        }
-    }
-
-    public class GetHospitalBranchByBranchCommand : IRequest<BranchViewModel>
-    {
-        public Guid guid { get; set; }
-    }
-
-    public class GetHospitalByBranchBranchHandler : IRequestHandler<GetHospitalBranchByBranchCommand, BranchViewModel>
-    {
-        private readonly IApplicationDbContext dbContext;
-
-        public GetHospitalByBranchBranchHandler(IApplicationDbContext dbContext)
-        {
-            this.dbContext = dbContext;
-        }
-        public async Task<BranchViewModel> Handle(GetHospitalBranchByBranchCommand request, CancellationToken cancellationToken)
-        {
-            var hospital = await dbContext.Hospitals.FindAsync(request.guid);
-            return new BranchViewModel(hospital.HospitalBranches?.FirstOrDefault(x => x.Id == request.guid));
         }
     }
 }

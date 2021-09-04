@@ -10,6 +10,22 @@ namespace HospitalMgt.API.Controllers
 {
     public class HospitalController : ApiControllerBase
     {
+        [HttpPost]
+        public async Task<ActionResult<Guid>> Create(AddHospitalCommand command)
+        {
+            return await Mediator.Send(command);
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<ActionResult<bool>> Update(Guid id, UpdateHospitalCommand command)
+        {
+            if (id != command.id)
+            {
+                return BadRequest();
+            }
+            return await Mediator.Send(command);
+        }
+
         [HttpGet]
         public async Task<ActionResult<PaginatedList<HospitalViewModel>>> GetHospitalsWithPagination([FromQuery] GetAllHospitalsCommand query)
         {
@@ -22,44 +38,5 @@ namespace HospitalMgt.API.Controllers
             return await Mediator.Send(new GetHospitalCommand() { guid = guid });
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Guid>> Create(AddHospitalCommand command)
-        {
-            return await Mediator.Send(command);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<ActionResult> Update(Guid id, UpdateHospitalCommand command)
-        {
-            if (id != command.id)
-            {
-                return BadRequest();
-            }
-
-            await Mediator.Send(command);
-
-            return NoContent();
-        }
-
-        //[HttpPut("[action]")]
-        //public async Task<ActionResult> UpdateItemDetails(int id, UpdateTodoItemDetailCommand command)
-        //{
-        //    if (id != command.Id)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    await Mediator.Send(command);
-
-        //    return NoContent();
-        //}
-
-        //[HttpDelete("{id}")]
-        //public async Task<ActionResult> Delete(int id)
-        //{
-        //    await Mediator.Send(new DeleteTodoItemCommand { Id = id });
-
-        //    return NoContent();
-        //}
     }
 }

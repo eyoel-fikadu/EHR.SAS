@@ -39,14 +39,10 @@ namespace HospitalMgt.Application.Features.Hospitals.Command
 
         public async Task<Guid> Handle(AddHospitalCommand request, CancellationToken cancellationToken)
         {
-            var newHospitl = mapper.Map<Hospital>(request);
-            //var brnahces = mapper.Map<ICollection<Branches>>(request.branches);
-            //var hos2 = request.ProjectToType<Hospital>();
-
-            dbContext.Hospitals.Add(newHospitl);
-
+            var newHospital = mapper.Map<Hospital>(request);
+            dbContext.Hospitals.Add(newHospital);
             await dbContext.SaveChangesAsync(cancellationToken);
-            return newHospitl.Id;
+            return newHospital.Id;
         }
     }
 }
