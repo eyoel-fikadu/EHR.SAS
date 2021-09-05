@@ -1,9 +1,12 @@
-﻿using HospitalMgt.Application.Features.Hospitals.Command;
+﻿using EHR.SAS.Common.Extensions;
+using HospitalMgt.Application.Features.Hospitals.Command;
 using HospitalMgt.Application.Features.Hospitals.Query;
 using HospitalMgt.Application.Features.Hospitals.ViewModel;
 using HospitalMgt.Application.Models;
+using HospitalMgt.Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace HospitalMgt.API.Controllers
@@ -36,6 +39,12 @@ namespace HospitalMgt.API.Controllers
         public async Task<ActionResult<HospitalViewModel>> GetHospitalById(Guid guid)
         {
             return await Mediator.Send(new GetHospitalCommand() { guid = guid });
+        }
+
+        [HttpGet("getHospitalEnums")]
+        public async Task<ActionResult<List<EnumResponseModel>>> GetEnums()
+        {
+            return await Mediator.Send(new GetHospitalEnums());
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using EHR.SAS.Common.Application.Exceptions;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -57,7 +58,7 @@ namespace HospitalMgt.API.Middleware
         {
             var exception = context.Exception as ValidationException;
 
-            var details = new ValidationProblemDetails(exception.Errors)
+            var details = new ValidationProblemDetails(exception.Errors.ToDictionary(x => x.ErrorMessage, y => new string[0]))
             {
                 Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1"
             };

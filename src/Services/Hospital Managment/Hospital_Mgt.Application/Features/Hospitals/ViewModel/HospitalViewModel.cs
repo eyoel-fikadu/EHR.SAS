@@ -1,5 +1,4 @@
-﻿using EHR.SAS.Common.Application.Exceptions;
-using HospitalMgt.Domain.Entities;
+﻿using HospitalMgt.Domain.Entities;
 using HospitalMgt.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -14,7 +13,7 @@ namespace HospitalMgt.Application.Features.Hospitals.ViewModel
         public string Description { get; set; }
         public string Website { get; set; }
         public string Type { get; set; } //Publicly owned , Non profit, For profit 
-        public string TypeOfCare { get; set; }
+        public string Classification { get; set; }
         public List<ContactInformation> contactInformation { get; set; }
         public List<BranchViewModel> Branches  { get; set; }
         public HospitalViewModel(Hospital hospital)
@@ -25,8 +24,8 @@ namespace HospitalMgt.Application.Features.Hospitals.ViewModel
                 Name = hospital.Name;
                 Description = hospital.Description;
                 Website = hospital.Website;
-                Type = hospital.Type;
-                TypeOfCare = hospital.TypeOfCare;
+                Type = hospital.Type.ToString();
+                Classification = hospital.Classification.ToString();
                 contactInformation = hospital.HospitalContactInformation?.ToList();
                 Branches = new List<BranchViewModel>();
                 hospital.HospitalBranches?.ToList().ForEach(x =>

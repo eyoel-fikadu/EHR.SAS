@@ -16,7 +16,7 @@ namespace HospitalMgt.Application.Features.Hospitals.Command
         public string Description { get; set; }
         public string Website { get; set; }
         public string Type { get; set; } //Publicly owned , Non profit, For profit 
-        public string TypeOfCare { get; set; }
+        public string Classification { get; set; }
 
         public void Register(TypeAdapterConfig config)
         {

@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\EHR.SAS.Common\EHR.SAS.Common.csproj" />
     <ProjectReference Include="..\HospitalMgt.Infrastructure\HospitalMgt.Infrastructure.csproj" />
     <ProjectReference Include="..\Hospital_Mgt.Application\HospitalMgt.Application.csproj" />
   </ItemGroup>

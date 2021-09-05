@@ -1,4 +1,5 @@
 ﻿using EHR.SAS.Common.Application.Exceptions;
+using FluentValidation;
 using HospitalMgt.Application.Common.Abstraction;
 using HospitalMgt.Domain.Entities;
 using HospitalMgt.Domain.ValueObjects;
@@ -35,6 +36,14 @@ namespace HospitalMgt.Application.Features.Hospitals.Command
             branch.Address = request.Address;
 
             return true;
+        }
+    }
+
+    public class UpdateBranchValidator : AbstractValidator<UpdateBranchCommand>
+    {
+        public UpdateBranchValidator()
+        {
+            RuleFor(x => x.id).NotNull();
         }
     }
 }

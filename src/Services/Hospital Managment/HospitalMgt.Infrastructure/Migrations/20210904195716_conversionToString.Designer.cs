@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HospitalMgt.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210827142552_intial")]
-    partial class intial
+    [Migration("20210904195716_conversionToString")]
+    partial class conversionToString
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -67,6 +67,10 @@ namespace HospitalMgt.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Classification")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uuid");
 
@@ -91,9 +95,7 @@ namespace HospitalMgt.Infrastructure.Migrations
                         .HasColumnType("character varying(200)");
 
                     b.Property<string>("Type")
-                        .HasColumnType("text");
-
-                    b.Property<string>("TypeOfCare")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Website")
