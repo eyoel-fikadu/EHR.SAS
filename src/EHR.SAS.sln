@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{44F41587-5D45-4948-B97B-D8C34A834E32}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API Gateway", "API Gateway", "{783A4EA4-9319-415B-8DAB-AB73F325D69F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Kernel", "Shared Kernel", "{18C06C2B-701A-42B7-840D-86AC0494C766}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hospital Managment", "Hospital Managment", "{154FFFEC-2BD2-43E3-9C12-B91D92E099AF}"
@@ -19,11 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalMgt.Infrastructure"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalMgt.API", "Services\Hospital Managment\HospitalMgt.API\HospitalMgt.API.csproj", "{F44014A0-8C7C-411C-B063-F4A53AA864B0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity Server", "Identity Server", "{33707B03-424D-4BA6-B03B-D2F629ADF442}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API Gateway", "API Gateway", "{33707B03-424D-4BA6-B03B-D2F629ADF442}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EHR.SAS.Common", "EHR.SAS.Common\EHR.SAS.Common.csproj", "{35338CB7-2D8E-4C1C-B8F4-659101B41ADC}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4DAA1EB2-BB8E-42CB-A965-DEC95DEF3691}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHROcelotApiGateway", "Services\API Gateway\EHRApiGateway\EHROcelotApiGateway\EHROcelotApiGateway.csproj", "{5B1FEB4A-7828-4310-AE12-4C87C06EE3DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +55,10 @@ Global
 		{4DAA1EB2-BB8E-42CB-A965-DEC95DEF3691}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DAA1EB2-BB8E-42CB-A965-DEC95DEF3691}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DAA1EB2-BB8E-42CB-A965-DEC95DEF3691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B1FEB4A-7828-4310-AE12-4C87C06EE3DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B1FEB4A-7828-4310-AE12-4C87C06EE3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B1FEB4A-7828-4310-AE12-4C87C06EE3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B1FEB4A-7828-4310-AE12-4C87C06EE3DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +71,7 @@ Global
 		{F44014A0-8C7C-411C-B063-F4A53AA864B0} = {154FFFEC-2BD2-43E3-9C12-B91D92E099AF}
 		{33707B03-424D-4BA6-B03B-D2F629ADF442} = {44F41587-5D45-4948-B97B-D8C34A834E32}
 		{35338CB7-2D8E-4C1C-B8F4-659101B41ADC} = {18C06C2B-701A-42B7-840D-86AC0494C766}
+		{5B1FEB4A-7828-4310-AE12-4C87C06EE3DF} = {33707B03-424D-4BA6-B03B-D2F629ADF442}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {071A311B-4C0B-4B72-9376-7730AFB85CAD}

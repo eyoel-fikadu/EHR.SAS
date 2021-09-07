@@ -1,11 +1,18 @@
 version: '3.4'
 
 services:
+  ehrapigateway:
+    image: ${DOCKER_REGISTRY-}ehrapigateway
+    build:
+      context: .
+      dockerfile: Services/API Gateway/EHROcelotApiGateway/Dockerfile
+
   hospitalmgt.api:
     image: ${DOCKER_REGISTRY-}hospitalmgtapi
     build:
       context: .
       dockerfile: Services/Hospital Managment/HospitalMgt.API/Dockerfile
+
   pgadmin:
     image: dpage/pgadmin4
 

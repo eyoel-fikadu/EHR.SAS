@@ -1,6 +1,12 @@
 version: '3.4'
 
 services:
+  ehrapigateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8000:80"
+
   hospitalmgt.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -8,7 +14,7 @@ services:
     depends_on:
       - hospitalmanagmentdb
     ports:
-      - "8000:80"
+      - "8001:80"
 
   hospitalmanagmentdb:
     hostname: postgres
