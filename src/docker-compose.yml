@@ -1,11 +1,13 @@
 version: '3.4'
 
 services:
-  ehrapigateway:
-    image: ${DOCKER_REGISTRY-}ehrapigateway
-    build:
-      context: .
-      dockerfile: Services/API Gateway/EHROcelotApiGateway/Dockerfile
+  envoygateway:
+    build: API Gateway/Envoy/
+    ports: 
+      - "9000:9000"
+      - "9001:9001"
+    volumes: 
+      - ./API Gateway/Envoy/envoy.yaml:/etc/envoy/envoy.yaml
 
   hospitalmgt.api:
     image: ${DOCKER_REGISTRY-}hospitalmgtapi

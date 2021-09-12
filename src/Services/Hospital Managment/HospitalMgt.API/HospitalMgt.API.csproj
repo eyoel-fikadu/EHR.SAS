@@ -5,6 +5,7 @@
     <DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..\..</DockerfileContext>
+    <UserSecretsId>Hospital-Api-1aa3259e-334b-442e-b3c3-55df0fd0849b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

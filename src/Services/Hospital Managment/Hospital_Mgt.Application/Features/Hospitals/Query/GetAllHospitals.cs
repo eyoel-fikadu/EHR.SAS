@@ -4,6 +4,7 @@ using HospitalMgt.Application.Features.Hospitals.ViewModel;
 using HospitalMgt.Application.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace HospitalMgt.Application.Features.Hospitals.Query
         {
             var hospitals = await dbContext.Hospitals.Include(x => x.HospitalBranches).AsNoTrackingWithIdentityResolution().PaginatedListAsync(request);
             var list = hospitals?.Items?.Select(c => new HospitalViewModel(c)).ToList();
+            if (list == null) return new PaginatedList<HospitalViewModel>(new List<HospitalViewModel>(), 0, 0, 0);
             return new PaginatedList<HospitalViewModel>(list, hospitals.TotalCount, hospitals.PageIndex, request.PageSize);
         }
     }

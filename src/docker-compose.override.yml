@@ -1,20 +1,22 @@
 version: '3.4'
 
 services:
-  ehrapigateway:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "8000:80"
 
   hospitalmgt.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:PostgresConnection=Server=hospitalmanagmentdb;Port=5432;Database=HospitalManagementDb;User Id=admin;Password=admin1234;"
+      - ASPNETCORE_URLS=https://*;http://*
+      - ASPNETCORE_HTTPS_PORT=8001
+      - ConnectionStrings:PostgresConnection=Server=hospitalmanagmentdb;Port=5432;Database=HospitalManagementDb;User Id=admin;Password=admin1234;
     depends_on:
       - hospitalmanagmentdb
     ports:
-      - "8001:80"
+      - "8000:80"
+      - "8001:443"
+    volumes:
+      - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets
+      - ${USERPROFILE}\.aspnet\https:/root/.aspnet/https/
+
 
   hospitalmanagmentdb:
     hostname: postgres
