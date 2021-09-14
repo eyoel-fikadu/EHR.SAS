@@ -1,13 +1,11 @@
 version: '3.4'
 
 services:
-  envoygateway:
-    build: API Gateway/Envoy/
-    ports: 
-      - "9000:9000"
-      - "9001:9001"
-    volumes: 
-      - ./API Gateway/Envoy/envoy.yaml:/etc/envoy/envoy.yaml
+  ocelotgateway:
+    image: ocelot/ocelotapigw:${TAG:-latest}
+    build: 
+      context: .
+      dockerfile: API Gateway/Ocelot/OcelotApitGateway/Dockerfile
 
   hospitalmgt.api:
     image: ${DOCKER_REGISTRY-}hospitalmgtapi

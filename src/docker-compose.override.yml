@@ -1,6 +1,13 @@
 version: '3.4'
 
 services:
+  ocelotgateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityUrl=http://identity-api
+    ports:
+      - "5200:80"
+    
 
   hospitalmgt.api:
     environment:
