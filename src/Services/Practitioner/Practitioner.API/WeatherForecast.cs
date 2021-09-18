@@ -1,6 +1,6 @@
 using System;
 
-namespace LIS.API
+namespace Practitioner.API
 {
     public class WeatherForecast
     {

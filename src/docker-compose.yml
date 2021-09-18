@@ -6,13 +6,21 @@ services:
     build:
       context: .
       dockerfile: Services/Hospital Managment/HospitalMgt.API/Dockerfile
+  laboratory.api:
+    image: ${DOCKER_REGISTRY-}laboratoryapi
+    build:
+      context: .
+      dockerfile: Services/Laboratory Information System/LIS.API/Dockerfile
   pgadmin:
     image: dpage/pgadmin4
 
   hospitalmanagmentdb:
-   image: postgres
+    image: postgres
+  lisdb:
+    image: mongo
 
 volumes:
   hospitaldb_data:
   pgadmin_data:
+  lisdb_data:
     
