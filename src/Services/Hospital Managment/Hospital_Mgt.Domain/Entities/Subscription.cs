@@ -4,7 +4,7 @@ using System;
 
 namespace HospitalMgt.Domain.Entities
 {
-    public class Subscription : AuditableEntity
+    public class Subscription : HospitalAuditableEntity
     {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

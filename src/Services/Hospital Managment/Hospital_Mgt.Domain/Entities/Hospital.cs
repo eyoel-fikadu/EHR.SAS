@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace HospitalMgt.Domain.Entities
 {
-    public class Hospital : AuditableEntity
+    public class Hospital : HospitalAuditableEntity
     {
         //https://www.vedantu.com/biology/hospital
         //https://www.gallaghermalpractice.com/blog/post/what-are-the-different-types-of-hospitals

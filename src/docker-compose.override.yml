@@ -1,27 +1,26 @@
 version: '3.4'
 
 services:
-  laboratory.api:
-    container_name: laboratory.api
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "MongoDbConnection:ConnectionStrings=mongodb://lisdb:27017"
-    depends_on:
-      - lisdb
+  portainer:
+    container_name: portainer
+    restart: always
     ports:
-      - "8001:80"
+      - "8080:8000"
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
 
-  hospitalmgt.api:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:PostgresConnection=Server=hospitalmanagmentdb;Port=5432;Database=HospitalManagementDb;User Id=admin;Password=admin1234;"
-    depends_on:
-      - hospitalmanagmentdb
+  billingdb:
+    container_name: billingdb
+    restart: always
     ports:
-      - "8000:80"
-
+      - "6379:6379"
+    
   hospitalmanagmentdb:
+    container_name: hospitalmanagmentdb
     hostname: postgres
+    restart: always
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin1234
@@ -46,7 +45,6 @@ services:
     volumes:
       - pgadmin_data:/root/.pgadmin
 
-
   lisdb:
     container_name: lisdb
     restart: always
@@ -54,4 +52,34 @@ services:
       - "27017:27071"
     volumes:
       - lisdb_data:/data/db
-        
+  
+  hospitalmgt.api:
+    container_name: hospitalmgt.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:PostgresConnection=Server=hospitalmanagmentdb;Port=5432;Database=HospitalManagementDb;User Id=admin;Password=admin1234;"
+    depends_on:
+      - hospitalmanagmentdb
+    ports:
+      - "8000:80"
+
+  laboratory.api:
+    container_name: laboratory.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "MongoDbConnection:ConnectionStrings=mongodb://lisdb:27017"
+    depends_on:
+      - lisdb
+    ports:
+      - "8001:80"
+
+  billing.api:
+    container_name: billing.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:RedisConnection=billingdb:6379"
+    depends_on:
+      - billingdb
+    ports:
+      - "8002:80"
+

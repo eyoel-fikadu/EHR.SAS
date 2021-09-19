@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LIS.Infastructure.Entities
 {
-    public class LaboratoryPossibleResults : AuditableEntity
+    public class LaboratoryPossibleResults : LaboratoryAuditableEntity
     {
         public string LabResults { get; set; }
     }

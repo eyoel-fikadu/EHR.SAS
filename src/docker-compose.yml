@@ -1,26 +1,42 @@
 version: '3.4'
 
 services:
-  hospitalmgt.api:
-    image: ${DOCKER_REGISTRY-}hospitalmgtapi
-    build:
-      context: .
-      dockerfile: Services/Hospital Managment/HospitalMgt.API/Dockerfile
-  laboratory.api:
-    image: ${DOCKER_REGISTRY-}laboratoryapi
-    build:
-      context: .
-      dockerfile: Services/Laboratory Information System/LIS.API/Dockerfile
+  portainer:
+    image: portainer/portainer-ce
+
+  billingdb:
+    image: redis:alpine
+
   pgadmin:
     image: dpage/pgadmin4
 
   hospitalmanagmentdb:
     image: postgres
+
   lisdb:
     image: mongo
+    
+  hospitalmgt.api:
+    image: ${DOCKER_REGISTRY-}hospitalmgtapi
+    build:
+      context: .
+      dockerfile: Services/Hospital Managment/HospitalMgt.API/Dockerfile
+
+  laboratory.api:
+    image: ${DOCKER_REGISTRY-}laboratoryapi
+    build:
+      context: .
+      dockerfile: Services/Laboratory Information System/LIS.API/Dockerfile
+
+  billing.api:
+    image: ${DOCKER_REGISTRY-}billingapi
+    build:
+      context: .
+      dockerfile: Services/Billing System/Billing.API/Dockerfile
 
 volumes:
   hospitaldb_data:
   pgadmin_data:
   lisdb_data:
+  portainer_data:
     

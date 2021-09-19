@@ -1,9 +1,9 @@
-﻿using EHR.SAS.Common.Extensions;
+﻿using EHR.SAS.Common.Controller;
+using EHR.SAS.Common.Extensions;
 using HospitalMgt.Application.Features.Hospitals.Command;
 using HospitalMgt.Application.Features.Hospitals.Query;
 using HospitalMgt.Application.Features.Hospitals.ViewModel;
 using HospitalMgt.Application.Models;
-using HospitalMgt.Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

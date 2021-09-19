@@ -1,4 +1,5 @@
-﻿using HospitalMgt.Application.Features.Hospitals.Command;
+﻿using EHR.SAS.Common.Controller;
+using HospitalMgt.Application.Features.Hospitals.Command;
 using HospitalMgt.Application.Features.Hospitals.Query;
 using HospitalMgt.Application.Features.Hospitals.ViewModel;
 using Microsoft.AspNetCore.Mvc;
