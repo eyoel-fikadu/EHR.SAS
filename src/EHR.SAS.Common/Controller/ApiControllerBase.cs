@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Billing.API.Controllers
+namespace EHR.SAS.Common.Controller
 {
     [ApiController]
     [Route("api/[controller]")]

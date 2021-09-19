@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Billing.Service.Features.Billing.Command;
 using Billing.Service.Features.Billing.Query;
 using Billing.Service.Features.Billing.ViewModel;
+using EHR.SAS.Common.Controller;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Billing.API.Controllers
