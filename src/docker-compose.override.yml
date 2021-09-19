@@ -12,6 +12,7 @@ services:
       - "8001:80"
 
   hospitalmgt.api:
+    container_name: hospitalmgt.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ConnectionStrings:PostgresConnection=Server=hospitalmanagmentdb;Port=5432;Database=HospitalManagementDb;User Id=admin;Password=admin1234;"
@@ -21,6 +22,7 @@ services:
       - "8000:80"
 
   hospitalmanagmentdb:
+    container_name: hospitalmanagmentdb
     hostname: postgres
     environment:
       - POSTGRES_USER=admin

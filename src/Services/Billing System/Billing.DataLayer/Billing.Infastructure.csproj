@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="5.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\EHR.SAS.Common\EHR.SAS.Common.csproj" />
-    <ProjectReference Include="..\Hospital_Mgt.Application\HospitalMgt.Application.csproj" />
   </ItemGroup>
 
 </Project>
