@@ -15,6 +15,9 @@ services:
 
   lisdb:
     image: mongo
+  
+  doctordb:
+    image: postgres
     
   hospitalmgt.api:
     image: ${DOCKER_REGISTRY-}hospitalmgtapi
@@ -34,9 +37,24 @@ services:
       context: .
       dockerfile: Services/Billing System/Billing.API/Dockerfile
 
+  practitioner.command.api:
+    image: ${DOCKER_REGISTRY-}practitionercommandapi
+    build:
+      context: .
+      dockerfile: Services/Practitioner/Practitioner.API/Dockerfile
+
+  practitioner.query.api:
+    image: ${DOCKER_REGISTRY-}practitionerqueryapi
+    build:
+      context: .
+      dockerfile: Services/Practitioner/Practitioner.Query.API/Dockerfile
+
 volumes:
   hospitaldb_data:
   pgadmin_data:
   lisdb_data:
   portainer_data:
+  doctordb_data:
     
+
+

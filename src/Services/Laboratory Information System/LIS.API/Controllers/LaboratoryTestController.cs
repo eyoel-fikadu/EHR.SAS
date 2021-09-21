@@ -1,4 +1,5 @@
-﻿using LIS.Service.CQRS.Features;
+﻿using EHR.SAS.Common.Controller;
+using LIS.Service.CQRS.Features;
 using LIS.Service.Features.Query;
 using LIS.Service.Features.ViewModel;
 using Microsoft.AspNetCore.Mvc;

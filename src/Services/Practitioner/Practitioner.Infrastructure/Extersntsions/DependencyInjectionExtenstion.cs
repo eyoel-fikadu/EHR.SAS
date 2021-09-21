@@ -1,13 +1,13 @@
 ﻿using EHR.SAS.Common.Application.Abstraction;
-using HospitalMgt.Application.Common.Abstraction;
-using HospitalMgt.Infrastructure.Persistance;
-using HospitalMgt.Infrastructure.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Practitioner.Application.Common.Abstraction;
+using Practitioner.Infrastructure.Persistance;
+using Practitioner.Infrastructure.Repository;
+using Practitioner.Infrastructure.Service;
 
-
-namespace HospitalMgt.Infrastructure
+namespace Practitioner.Infrastructure
 {
     public static class DependencyInjectionExtenstion
     {
@@ -20,27 +20,12 @@ namespace HospitalMgt.Infrastructure
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
-
-            //services
-            //.AddDefaultIdentity<ApplicationUser>()
-            //.AddRoles<IdentityRole>()
-            //.AddEntityFrameworkStores<ApplicationDbContext>();
-
-            //services.AddIdentityServer()
-            //    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+            services.AddScoped<IReadRepository, ReadRepository>();
 
             services.AddTransient<IDateTime, DateTimeService>();
-            //services.AddTransient<IIdentityService, IdentityService>();
-
-            //services.AddAuthentication()
-            //    .AddIdentityServerJwt();
-
-            //services.AddAuthorization(options =>
-            //{
-            //    //options.AddPolicy("CanPurge", policy => policy.RequireRole("Administrator"));
-            //});
-
+            
             return services;
         }
+
     }
 }

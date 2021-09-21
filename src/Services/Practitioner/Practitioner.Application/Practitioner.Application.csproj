@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\EHR.SAS.Common\EHR.SAS.Common.csproj" />
+    <ProjectReference Include="..\Practitioner.Domain\Practitioner.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

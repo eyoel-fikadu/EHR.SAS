@@ -1,18 +1,15 @@
 using EHR.SAS.Common.Application.Abstraction;
-using HospitalMgt.API.Middleware;
-using HospitalMgt.API.Services;
-using HospitalMgt.Application;
-using HospitalMgt.Application.Common.Abstraction;
-using HospitalMgt.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Practitioner.Application;
+using Practitioner.Infrastructure;
+using Practitioner.Query.API.Services;
 
-
-namespace HospitalMgt.API
+namespace Practitioner.Query.API
 {
     public class Startup
     {
@@ -28,26 +25,15 @@ namespace HospitalMgt.API
         {
             services.AddApplication();
             services.AddInfrastructure(Configuration);
-
             services.AddHttpContextAccessor();
-
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
-
-            services.AddMvc(options =>
-                options.Filters.Add<ApiExceptionMiddleware>());
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "HospitalMgt", Version = "v1" });
-                c.AddSecurityDefinition("JWT", new OpenApiSecurityScheme
-                {
-                    Type = SecuritySchemeType.ApiKey,
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Description = "Type into the textbox: Bearer {your JWT token}."
-                });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Practitioner.Query.API", Version = "v1" });
             });
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,17 +43,12 @@ namespace HospitalMgt.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HospitalMgt.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Practitioner.Query.API v1"));
             }
-
-            app.UseHttpsRedirection();
-
 
             app.UseRouting();
 
             app.UseAuthorization();
-
-            //app.UseMiddleware<ApiExceptionMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

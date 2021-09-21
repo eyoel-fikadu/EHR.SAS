@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalMgt.Infrastructure"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalMgt.API", "Services\Hospital Managment\HospitalMgt.API\HospitalMgt.API.csproj", "{F44014A0-8C7C-411C-B063-F4A53AA864B0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity Server", "Identity Server", "{33707B03-424D-4BA6-B03B-D2F629ADF442}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EHR.SAS.Common", "EHR.SAS.Common\EHR.SAS.Common.csproj", "{35338CB7-2D8E-4C1C-B8F4-659101B41ADC}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4DAA1EB2-BB8E-42CB-A965-DEC95DEF3691}"
@@ -33,15 +31,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIS.Service", "Services\Lab
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Practitioner", "Practitioner", "{BFED3595-629F-4C0A-A270-6B5C03C2ABED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practitioner.API", "Services\Practitioner\Practitioner.API\Practitioner.API.csproj", "{610726FF-B2F3-4CF0-951F-6080F460F186}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practitioner.Command.API", "Services\Practitioner\Practitioner.API\Practitioner.Command.API.csproj", "{610726FF-B2F3-4CF0-951F-6080F460F186}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Billing System", "Billing System", "{FFD14CCE-3539-4273-B5EE-F1FAAD71F82A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing.API", "Services\Billing System\Billing.API\Billing.API.csproj", "{F5DDBE25-2737-48CD-A90A-546503711195}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billing.API", "Services\Billing System\Billing.API\Billing.API.csproj", "{F5DDBE25-2737-48CD-A90A-546503711195}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing.Service", "Services\Billing System\Billing.Service\Billing.Service.csproj", "{1DF4E54D-B5B8-4EE5-AC9C-088DC1E94FCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billing.Service", "Services\Billing System\Billing.Service\Billing.Service.csproj", "{1DF4E54D-B5B8-4EE5-AC9C-088DC1E94FCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing.Infastructure", "Services\Billing System\Billing.DataLayer\Billing.Infastructure.csproj", "{4FF5F42D-69E0-4E5E-867A-BBC3DD92D697}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billing.Infastructure", "Services\Billing System\Billing.DataLayer\Billing.Infastructure.csproj", "{4FF5F42D-69E0-4E5E-867A-BBC3DD92D697}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practitioner.Domain", "Services\Practitioner\Practitioner.Domain\Practitioner.Domain.csproj", "{CD8BC0BB-EBAC-412B-8966-2703CAA84CEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practitioner.Application", "Services\Practitioner\Practitioner.Application\Practitioner.Application.csproj", "{5DA8BCFD-E45F-4E93-B71F-4A47492A828A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practitioner.Infrastructure", "Services\Practitioner\Practitioner.Infrastructure\Practitioner.Infrastructure.csproj", "{67866900-EA75-4C40-B301-8FDAE730285B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practitioner.Query.API", "Services\Practitioner\Practitioner.Query.API\Practitioner.Query.API.csproj", "{8CF262C4-8E0C-44CC-AB19-64DB538F1A28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +107,22 @@ Global
 		{4FF5F42D-69E0-4E5E-867A-BBC3DD92D697}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FF5F42D-69E0-4E5E-867A-BBC3DD92D697}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FF5F42D-69E0-4E5E-867A-BBC3DD92D697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD8BC0BB-EBAC-412B-8966-2703CAA84CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD8BC0BB-EBAC-412B-8966-2703CAA84CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD8BC0BB-EBAC-412B-8966-2703CAA84CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD8BC0BB-EBAC-412B-8966-2703CAA84CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DA8BCFD-E45F-4E93-B71F-4A47492A828A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DA8BCFD-E45F-4E93-B71F-4A47492A828A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DA8BCFD-E45F-4E93-B71F-4A47492A828A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DA8BCFD-E45F-4E93-B71F-4A47492A828A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67866900-EA75-4C40-B301-8FDAE730285B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67866900-EA75-4C40-B301-8FDAE730285B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67866900-EA75-4C40-B301-8FDAE730285B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67866900-EA75-4C40-B301-8FDAE730285B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CF262C4-8E0C-44CC-AB19-64DB538F1A28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CF262C4-8E0C-44CC-AB19-64DB538F1A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CF262C4-8E0C-44CC-AB19-64DB538F1A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CF262C4-8E0C-44CC-AB19-64DB538F1A28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,7 +133,6 @@ Global
 		{2B19D0B1-403A-45A5-B969-8AAF67A4E5E0} = {154FFFEC-2BD2-43E3-9C12-B91D92E099AF}
 		{70CC931D-7BAE-46B3-86E4-9DE6C8D81911} = {154FFFEC-2BD2-43E3-9C12-B91D92E099AF}
 		{F44014A0-8C7C-411C-B063-F4A53AA864B0} = {154FFFEC-2BD2-43E3-9C12-B91D92E099AF}
-		{33707B03-424D-4BA6-B03B-D2F629ADF442} = {44F41587-5D45-4948-B97B-D8C34A834E32}
 		{35338CB7-2D8E-4C1C-B8F4-659101B41ADC} = {18C06C2B-701A-42B7-840D-86AC0494C766}
 		{56710D48-520D-4FE1-9756-94240CDFBD92} = {44F41587-5D45-4948-B97B-D8C34A834E32}
 		{06F500F4-0DDE-4B4F-8321-FEC5ED581B0E} = {56710D48-520D-4FE1-9756-94240CDFBD92}
@@ -123,6 +144,10 @@ Global
 		{F5DDBE25-2737-48CD-A90A-546503711195} = {FFD14CCE-3539-4273-B5EE-F1FAAD71F82A}
 		{1DF4E54D-B5B8-4EE5-AC9C-088DC1E94FCC} = {FFD14CCE-3539-4273-B5EE-F1FAAD71F82A}
 		{4FF5F42D-69E0-4E5E-867A-BBC3DD92D697} = {FFD14CCE-3539-4273-B5EE-F1FAAD71F82A}
+		{CD8BC0BB-EBAC-412B-8966-2703CAA84CEE} = {BFED3595-629F-4C0A-A270-6B5C03C2ABED}
+		{5DA8BCFD-E45F-4E93-B71F-4A47492A828A} = {BFED3595-629F-4C0A-A270-6B5C03C2ABED}
+		{67866900-EA75-4C40-B301-8FDAE730285B} = {BFED3595-629F-4C0A-A270-6B5C03C2ABED}
+		{8CF262C4-8E0C-44CC-AB19-64DB538F1A28} = {BFED3595-629F-4C0A-A270-6B5C03C2ABED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {071A311B-4C0B-4B72-9376-7730AFB85CAD}

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Security.Claims;
 
-namespace HospitalMgt.API.Services
+namespace Practitioner.Query.API.Services
 {
     public class CurrentUserService : ICurrentUserService
     {

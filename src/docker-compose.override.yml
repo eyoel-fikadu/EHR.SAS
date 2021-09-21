@@ -53,6 +53,19 @@ services:
     volumes:
       - lisdb_data:/data/db
   
+  doctordb:
+    container_name: doctordb
+    hostname: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_DB=DoctorInsights
+    ports:
+      - "5433:5432"
+    volumes:
+      - doctordb_data:/var/lib/postgresql/data/
+  
   hospitalmgt.api:
     container_name: hospitalmgt.api
     environment:
@@ -82,4 +95,24 @@ services:
       - billingdb
     ports:
       - "8002:80"
+
+  practitioner.command.api:
+    container_name: practitioner.command.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:PostgresConnection=Server=doctordb;Port=5432;Database=DoctorInsights;User Id=admin;Password=admin1234;"
+    depends_on:
+      - doctordb
+    ports:
+      - "8003:80"
+
+  practitioner.query.api:
+    container_name: practitioner.query.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:PostgresConnection=Server=doctordb;Port=5432;Database=DoctorInsights;User Id=admin;Password=admin1234;"
+    depends_on:
+      - doctordb
+    ports:
+      - "8004:80"
 
