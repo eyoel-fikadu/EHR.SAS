@@ -11,6 +11,7 @@ namespace LIS.Infastructure.Repositories.IRepository
     {
         Task<IEnumerable<LaboratoryTest>> GetLaboratoryTests();
         Task<LaboratoryTest> GetLaboratoryTestById(string id);
+        Task<LaboratoryTest> GetLaboratoryTestByCardId(Guid id);
         Task<IEnumerable<LaboratoryTest>> GetLaboratoryTestsByTestType(string type);
 
         Task CreateLaboratoryTest(LaboratoryTest test);

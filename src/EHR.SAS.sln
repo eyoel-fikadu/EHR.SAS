@@ -41,13 +41,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billing.Service", "Services
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billing.Infastructure", "Services\Billing System\Billing.DataLayer\Billing.Infastructure.csproj", "{4FF5F42D-69E0-4E5E-867A-BBC3DD92D697}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practitioner.Domain", "Services\Practitioner\Practitioner.Domain\Practitioner.Domain.csproj", "{CD8BC0BB-EBAC-412B-8966-2703CAA84CEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practitioner.Domain", "Services\Practitioner\Practitioner.Domain\Practitioner.Domain.csproj", "{CD8BC0BB-EBAC-412B-8966-2703CAA84CEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practitioner.Application", "Services\Practitioner\Practitioner.Application\Practitioner.Application.csproj", "{5DA8BCFD-E45F-4E93-B71F-4A47492A828A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practitioner.Application", "Services\Practitioner\Practitioner.Application\Practitioner.Application.csproj", "{5DA8BCFD-E45F-4E93-B71F-4A47492A828A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practitioner.Infrastructure", "Services\Practitioner\Practitioner.Infrastructure\Practitioner.Infrastructure.csproj", "{67866900-EA75-4C40-B301-8FDAE730285B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practitioner.Infrastructure", "Services\Practitioner\Practitioner.Infrastructure\Practitioner.Infrastructure.csproj", "{67866900-EA75-4C40-B301-8FDAE730285B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practitioner.Query.API", "Services\Practitioner\Practitioner.Query.API\Practitioner.Query.API.csproj", "{8CF262C4-8E0C-44CC-AB19-64DB538F1A28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practitioner.Query.API", "Services\Practitioner\Practitioner.Query.API\Practitioner.Query.API.csproj", "{8CF262C4-8E0C-44CC-AB19-64DB538F1A28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LIS.Grpc", "Services\Laboratory Information System\LIS.Grpc\LIS.Grpc.csproj", "{9E6860E3-8455-4570-B952-8DC6ED71248C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{8CF262C4-8E0C-44CC-AB19-64DB538F1A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CF262C4-8E0C-44CC-AB19-64DB538F1A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CF262C4-8E0C-44CC-AB19-64DB538F1A28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E6860E3-8455-4570-B952-8DC6ED71248C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E6860E3-8455-4570-B952-8DC6ED71248C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E6860E3-8455-4570-B952-8DC6ED71248C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E6860E3-8455-4570-B952-8DC6ED71248C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,6 +154,7 @@ Global
 		{5DA8BCFD-E45F-4E93-B71F-4A47492A828A} = {BFED3595-629F-4C0A-A270-6B5C03C2ABED}
 		{67866900-EA75-4C40-B301-8FDAE730285B} = {BFED3595-629F-4C0A-A270-6B5C03C2ABED}
 		{8CF262C4-8E0C-44CC-AB19-64DB538F1A28} = {BFED3595-629F-4C0A-A270-6B5C03C2ABED}
+		{9E6860E3-8455-4570-B952-8DC6ED71248C} = {56710D48-520D-4FE1-9756-94240CDFBD92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {071A311B-4C0B-4B72-9376-7730AFB85CAD}

@@ -26,8 +26,6 @@ namespace LIS.Infastructure.Seed
                 new LaboratoryTest()
                 {
                     Id = "602d2149e773f2a3990b47f5",
-                    BranchId = Guid.NewGuid(),
-                    HospitalId = Guid.NewGuid(),
                     ResultType = "Type 1",
                     TestName = "Test 1",
                     TestType = "Test Type 1"
@@ -35,17 +33,13 @@ namespace LIS.Infastructure.Seed
                 new LaboratoryTest()
                 {
                     Id = "602d2149e773f2a3990b47f6",
-                    BranchId = Guid.NewGuid(),
-                    HospitalId = Guid.NewGuid(),
                     ResultType = "Type 2",
                     TestName = "Test 2",
                     TestType = "Test Type 2"
                 },
                 new LaboratoryTest()
                 {
-                   Id = "602d2149e773f2a3990b47f7",
-                    BranchId = Guid.NewGuid(),
-                    HospitalId = Guid.NewGuid(),
+                    Id = "602d2149e773f2a3990b47f7",
                     ResultType = "Type 3",
                     TestName = "Test 3",
                     TestType = "Test Type 3"

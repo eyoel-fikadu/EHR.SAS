@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.1" />
   </ItemGroup>
@@ -16,6 +17,12 @@
     <ProjectReference Include="..\..\..\EHR.SAS.Common\EHR.SAS.Common.csproj" />
     <ProjectReference Include="..\Practitioner.Application\Practitioner.Application.csproj" />
     <ProjectReference Include="..\Practitioner.Infrastructure\Practitioner.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\..\Laboratory Information System\LIS.Grpc\Protos\laboratory.proto" GrpcServices="Client">
+      <Link>Protos\laboratory.proto</Link>
+    </Protobuf>
   </ItemGroup>
 
 </Project>

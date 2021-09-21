@@ -35,6 +35,14 @@ namespace LIS.Infastructure.Repositories.Repository
             return result.IsAcknowledged;
         }
 
+        public async Task<LaboratoryTest> GetLaboratoryTestByCardId(Guid id)
+        {
+            return await _context
+                            .LaboratoryTest
+                            .Find(prop => prop.CardId == id)
+                            .FirstOrDefaultAsync();
+        }
+
         public async Task<LaboratoryTest> GetLaboratoryTestById(string id)
         {
             return await _context

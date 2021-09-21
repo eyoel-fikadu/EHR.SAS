@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "LIS.Grpc.Protos";
+
+service LaboratoryProtoService {
+	rpc GetPatientLaboratoryResults(GetLabResultByCardIdRequest) returns (LaboratoryModel);
+}
+
+message GetLabResultByCardIdRequest {
+	UUID cardId = 1;
+}
+
+message LaboratoryModel {
+	UUID Card = 1;
+    string TestName = 3;
+    string TestType = 4;
+    string ResultType = 5;
+    TestResults results = 6;
+}
+
+message TestResults {
+    repeated string result = 1;
+}
+
+message UUID {
+  string value = 1;
+}

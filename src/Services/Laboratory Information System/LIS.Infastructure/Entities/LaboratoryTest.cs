@@ -8,11 +8,10 @@ namespace LIS.Infastructure.Entities
 {
     public class LaboratoryTest : LaboratoryAuditableEntity
     {
-        public Guid HospitalId { get; set; }
-        public Guid BranchId { get; set; }
+        public Guid CardId { get; set; }
         public string TestName { get; set; }
         public string TestType { get; set; }
         public string ResultType { get; set; }
-        public List<LaboratoryPossibleResults> PossibleResults { get; set; }
+        public List<LaboratoryPossibleResults> PossibleResults { get; set; } = new List<LaboratoryPossibleResults>();
     }
 }

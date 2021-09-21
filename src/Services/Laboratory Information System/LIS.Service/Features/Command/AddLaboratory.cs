@@ -13,8 +13,7 @@ namespace LIS.Service.CQRS.Features
 {
     public class AddLaboratoryCommand : IRequest<string>
     {
-        public Guid HospitalId { get; set; }
-        public Guid BranchId { get; set; }
+        public Guid CardId { get; set; }
         public string TestName { get; set; }
         public string TestType { get; set; }
         public string ResultType { get; set; }
@@ -35,8 +34,7 @@ namespace LIS.Service.CQRS.Features
         {
             var laboratoryTest = new LaboratoryTest()
             {
-                BranchId = request.BranchId,
-                HospitalId = request.HospitalId,
+                CardId = request.CardId,
                 ResultType = request.ResultType,
                 TestName = request.TestName,
                 TestType = request.TestType
