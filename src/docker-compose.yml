@@ -49,6 +49,12 @@ services:
       context: .
       dockerfile: Services/Practitioner/Practitioner.Query.API/Dockerfile
 
+  lis.grpc:
+    image: ${DOCKER_REGISTRY-}lisgrpc
+    build:
+      context: .
+      dockerfile: Services/Laboratory Information System/LIS.Grpc/Dockerfile
+
 volumes:
   hospitaldb_data:
   pgadmin_data:
@@ -56,5 +62,6 @@ volumes:
   portainer_data:
   doctordb_data:
     
+
 
 

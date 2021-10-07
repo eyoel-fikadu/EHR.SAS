@@ -10,13 +10,13 @@ namespace LIS.Infastructure.Seed
 {
     public class LaboratoryContextSeed
     {
-        public async static void SeedData(IMongoCollection<LaboratoryTest> laboratoryTestCollection)
+        public static void SeedData(IMongoCollection<LaboratoryTest> laboratoryTestCollection)
         {
-            bool exist = laboratoryTestCollection.Find(p => true).Any();
-            if(!exist)
-            {
-                await laboratoryTestCollection.InsertManyAsync(GetPreConfiguredTests());
-            }
+            //bool exist = laboratoryTestCollection.Find(p => true).Any();
+            //if(!exist)
+            //{
+            //    await laboratoryTestCollection.InsertManyAsync(GetPreConfiguredTests());
+            //}
         }
 
         private static IEnumerable<LaboratoryTest> GetPreConfiguredTests()

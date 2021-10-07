@@ -26,7 +26,8 @@ namespace LIS.Grpc.Services
             (GetLabResultByCardIdRequest request, ServerCallContext context)
         {
             Guid cardId = Guid.Empty;
-            if (Guid.TryParse(request.CardId.Value, out cardId)){
+            if (Guid.TryParse(request.CardId.Value, out cardId))
+            {
                 var history = await _mediator.Send(new GetLaboratoryTestByCardIdCommand() { cardId = cardId });
                 if(history == null)
                 {
@@ -43,6 +44,8 @@ namespace LIS.Grpc.Services
                 var test = new TestResults();
                 test.Result.AddRange(history.PossibleResults);
                 lab.Results = test;
+
+                return lab;
             }
             throw new RpcException(new Status(StatusCode.InvalidArgument, $"Invalid card id {request.CardId.Value}"));
         }

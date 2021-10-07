@@ -49,7 +49,7 @@ services:
     container_name: lisdb
     restart: always
     ports:
-      - "27017:27071"
+      - "27017:27017"
     volumes:
       - lisdb_data:/data/db
   
@@ -80,7 +80,7 @@ services:
     container_name: laboratory.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "MongoDbConnection:ConnectionStrings=mongodb://lisdb:27017"
+      - "MongoDbConnection:ConnectionStrings=mongodb://lisdb:27017/"
     depends_on:
       - lisdb
     ports:
@@ -111,8 +111,20 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ConnectionStrings:PostgresConnection=Server=doctordb;Port=5432;Database=DoctorInsights;User Id=admin;Password=admin1234;"
+      - "GrpcSettings:LaboratoryUrl=lis.grpc"
     depends_on:
       - doctordb
     ports:
       - "8004:80"
+
+
+  lis.grpc:
+    container_name: lis.grpc
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "MongoDbConnection:ConnectionStrings=mongodb://lisdb:27017"
+    depends_on:
+      - lisdb
+    ports:
+      - "8005:80"
 

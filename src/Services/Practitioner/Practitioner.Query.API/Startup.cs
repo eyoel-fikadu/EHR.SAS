@@ -1,4 +1,5 @@
 using EHR.SAS.Common.Application.Abstraction;
+using LIS.Grpc.Protos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +8,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Practitioner.Application;
 using Practitioner.Infrastructure;
+using Practitioner.Query.API.GrpcServices;
 using Practitioner.Query.API.Services;
+using System;
 
 namespace Practitioner.Query.API
 {
@@ -25,8 +28,15 @@ namespace Practitioner.Query.API
         {
             services.AddApplication();
             services.AddInfrastructure(Configuration);
+            
             services.AddHttpContextAccessor();
+            
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
+            
+            services.AddScoped<LaboratoryGrpcService>();
+
+            services.AddGrpcClient<LaboratoryProtoService.LaboratoryProtoServiceClient>
+                (option => option.Address = new Uri(Configuration["GrpcSettings:LaboratoryUrl"]));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

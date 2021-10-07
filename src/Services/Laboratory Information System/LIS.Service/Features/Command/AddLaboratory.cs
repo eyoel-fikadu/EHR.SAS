@@ -40,8 +40,14 @@ namespace LIS.Service.CQRS.Features
                 TestType = request.TestType
             };
 
-            await _repository.CreateLaboratoryTest(laboratoryTest);
+            try
+            {
+                await _repository.CreateLaboratoryTest(laboratoryTest);
+            }
+            catch(Exception ex)
+            {
 
+            }
             return laboratoryTest.Id;
         }
     }

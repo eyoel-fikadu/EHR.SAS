@@ -19,7 +19,7 @@ namespace LIS.Infastructure.Data
             LaboratoryTest = database.GetCollection<LaboratoryTest>(configuration.GetValue<string>("MongoDbConnection:LaboratoryTest"));
             LaboratoryPossibleResults = database.GetCollection<LaboratoryPossibleResults>(configuration.GetValue<string>("MongoDbConnection:LaboratoryPossibleResults"));
 
-            LaboratoryContextSeed.SeedData(LaboratoryTest);
+            //LaboratoryContextSeed.SeedData(LaboratoryTest);
         }
         public IMongoCollection<LaboratoryTest> LaboratoryTest { get; }
 
